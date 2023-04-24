@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# ssh config
+if [ ! -f ~/.ssh/school ]; then
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/school -N ""
+fi
+
+echo "Host <54.236.33.9>
+IdentityFile ~/.ssh/school
+PasswordAuthentication no" >> ~/.ssh/config
