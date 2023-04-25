@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# script that install nginx on a remote server and configure it
+#script that install nginx on a remote server and configure it
 
 
 #update packages list and install nginx
