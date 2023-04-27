@@ -1,15 +1,12 @@
-#!/usr/bin/env bash
-#apply puppet to configure ssh
-
-file { '/home/ubuntu/.ssh/config':
-  ensure => file,
-  mode   => '0600',
-  owner  => 'ubuntu',
-  group  => 'ubuntu',
-  content => "
-    Host 18.206.233.250
-      IdentityFile ~/.ssh/school
-      PasswordAuthentication no
-  ",
+# apply puppet to set up your client SSH configuration file so that you can connect to a server without typing a password
+include stdlib
+file_line { 'Declaring identity file':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'IdentityFile ~/.ssh/school',
+  replace => true,
 }
-
+file_line { 'turning off passwd auth':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'PasswordAuthentication no',
+  replace => true,
+}
