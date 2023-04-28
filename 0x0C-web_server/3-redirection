@@ -4,10 +4,15 @@
 apt-get update
 apt-get -y install nginx
 
+<<<<<<< HEAD
 sudo sed -i "/^}/i \
 \
   location /redirect_me {\
     return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\
   }" /etc/nginx/nginx.conf
+=======
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites_available/default
+
+>>>>>>> 7970e3e317369499678d1bd58d5bda95f1f32cd7
 sudo /etc/init.d/nginx restart
 sudo echo "Hello World!" | sudo tee /var/www/html/index.html
