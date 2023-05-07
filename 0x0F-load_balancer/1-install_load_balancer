@@ -16,3 +16,5 @@ backend mybackend
   server 181356-web-01 18.206.233.250:80
   server 181356-web-02 34.239.255.79:80
 EOT
+
+sudo service haproxy start
